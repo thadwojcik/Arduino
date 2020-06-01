@@ -65,6 +65,10 @@ void setup() {
 }
 
 
+/** main loop 
+  * switch between color pattens every 30 seconds. Not thrilled by some of
+  * the redundency in this methor but gonna live with it for now.
+*/
 void loop()
 {  
   uint8_t secondHand = (millis() / 1000) % 90;
@@ -85,7 +89,10 @@ void loop()
   FastLED.show();  
 }
 
-
+/*
+ * Cascades colors from across the LED strip in a rolling effect. 
+ * Code mostly taken from the Fast LED demo.
+ */
 void CascadeColors( uint8_t colorIndex)
 {       
       uint8_t brightness = 255;
@@ -96,6 +103,11 @@ void CascadeColors( uint8_t colorIndex)
       }    
 }
 
+/*
+ * Populates the entire LED strip with one color and 
+ * shifts that between solid colors.
+ * Code mostly taken from the Fast LED demo.
+ */
 void ConstantColorShift( uint8_t colorIndex)
 {    
   
@@ -107,6 +119,10 @@ void ConstantColorShift( uint8_t colorIndex)
   
 }
 
+/*
+ * Adds a nice starlight twinkle effect.
+ * Cide mostly taken from the Fast LED demo.
+ */
 void Twinkle(){
 
   EVERY_N_SECONDS( SECONDS_PER_PALETTE ) { 
